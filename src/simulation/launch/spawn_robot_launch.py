@@ -25,7 +25,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'robot_name',
             default_value='robot',
-            description='Use simulation (Gazebo) clock if true'),
+            description='The name of the robot and its namespace'),
         DeclareLaunchArgument(
             'use_sim_time',
             default_value='false',

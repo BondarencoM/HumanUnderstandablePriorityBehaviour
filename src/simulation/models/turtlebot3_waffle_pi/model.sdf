@@ -156,7 +156,7 @@
         </ray>
         <plugin name="turtlebot3_laserscan" filename="libgazebo_ros_ray_sensor.so">
           <ros>
-            <!-- <namespace>/tb3</namespace> -->
+            <namespace>/robot1</namespace>
             <remapping>~/out:=scan</remapping>
           </ros>
           <output_type>sensor_msgs/LaserScan</output_type>
@@ -476,7 +476,7 @@
     <plugin name="turtlebot3_diff_drive" filename="libgazebo_ros_diff_drive.so">
 
       <ros>
-        <!-- <namespace>/tb3</namespace> -->
+        <!-- <remapping>/tf:=tf</remapping> -->
       </ros>
 
       <update_rate>30</update_rate>

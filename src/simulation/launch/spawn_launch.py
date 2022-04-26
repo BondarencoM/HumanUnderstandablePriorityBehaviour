@@ -26,18 +26,26 @@ def generate_launch_description():
           package='robot_state_publisher',
           executable='robot_state_publisher',
           name='robot_state_publisher1',
+          namespace='robot1',
           output='screen',
           parameters=[
             {'use_sim_time': use_sim_time},
-            {'robot_description': robot_desc}],
-          arguments=[urdf]),
-
+            {'robot_description': robot_desc},
+            {'frame_prefix': 'robot1/'},
+            ],
+          remappings=[
+            ]
+          ),
+        Node(package = "tf2_ros", 
+          executable = "static_transform_publisher",
+          arguments = "0 0 0 0 0 0 map robot1/base_footprint".split(' ')),
         Node(
             package='gazebo_ros', 
             executable='spawn_entity.py', 
             arguments=['-entity', 'robot1', 
+               '-robot_namespace', 'robot1',
                '-file', sdf_model,
-                '-x', '-3.0',
+                '-x', '-5.0',
                 '-y', '0.0',
                 '-z', '0.0'],
             output='screen'),
@@ -46,22 +54,29 @@ def generate_launch_description():
           package='robot_state_publisher',
           executable='robot_state_publisher',
           name='robot_state_publisher2',
+          namespace='robot2',
           output='screen',
           parameters=[
             {'use_sim_time': use_sim_time},
-            {'robot_description': robot_desc}],
-          arguments=[urdf]),
-
+            {'robot_description': robot_desc},
+            {'frame_prefix': 'robot2/'},
+            ],
+          remappings=[
+            ]),
         Node(
         package='gazebo_ros', 
         executable='spawn_entity.py', 
         arguments=['-entity', 'robot2', 
+            '-robot_namespace', 'robot2',
             '-file', sdf_model,
             '-x', '-1.0',
             '-y', '0.0',
             '-z', '0.0'],
         output='screen',
         namespace='robot2'),
+        Node(package = "tf2_ros", 
+          executable = "static_transform_publisher",
+          arguments = "0 0 0 0 0 0 map robot2/base_footprint".split(' ')),
 
     ])
     return ld
