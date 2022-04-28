@@ -36,9 +36,9 @@ def generate_launch_description():
           remappings=[
             ]
           ),
-        Node(package = "tf2_ros", 
-          executable = "static_transform_publisher",
-          arguments = "0 0 0 0 0 0 map robot1/base_footprint".split(' ')),
+        # Node(package = "tf2_ros", 
+        #   executable = "static_transform_publisher",
+        #   arguments = "0 0 0 0 0 0 map robot1/base_footprint".split(' ')),
         Node(
             package='gazebo_ros', 
             executable='spawn_entity.py', 
@@ -74,9 +74,9 @@ def generate_launch_description():
             '-z', '0.0'],
         output='screen',
         namespace='robot2'),
-        Node(package = "tf2_ros", 
-          executable = "static_transform_publisher",
-          arguments = "0 0 0 0 0 0 map robot2/base_footprint".split(' ')),
+        # Node(package = "tf2_ros", 
+        #   executable = "static_transform_publisher",
+        #   arguments = "0 0 0 0 0 0 map robot2/base_footprint".split(' ')),
 
     ])
     return ld

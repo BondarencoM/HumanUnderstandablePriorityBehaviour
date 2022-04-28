@@ -18,7 +18,8 @@ setup(
         (os.path.join('share', package_name, 'models'), glob('models/turtlebot3_burger/meshes/*')),
         (os.path.join('share', package_name, 'models'), glob('models/turtlebot3_burger/model*')),
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.urdf')),
-        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz'))
+        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
+        (os.path.join('share', package_name, 'slam'), glob('slam/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
